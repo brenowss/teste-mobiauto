@@ -1,4 +1,10 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import IndexPage from './page';
@@ -25,11 +31,13 @@ describe('IndexPage', () => {
     jest.clearAllMocks();
   });
 
-  it('should render the form with the correct labels', () => {
-    render(
-      <Provider store={reduxStore}>
-        <IndexPage />
-      </Provider>
+  it('should render the form with the correct labels', async () => {
+    await act(async () =>
+      render(
+        <Provider store={reduxStore}>
+          <IndexPage />
+        </Provider>
+      )
     );
 
     expect(screen.getByTestId('Marca')).toBeInTheDocument();
@@ -43,10 +51,12 @@ describe('IndexPage', () => {
       { id: '1', name: 'Brand 1' },
     ]);
 
-    render(
-      <Provider store={reduxStore}>
-        <IndexPage />
-      </Provider>
+    await act(async () =>
+      render(
+        <Provider store={reduxStore}>
+          <IndexPage />
+        </Provider>
+      )
     );
 
     await waitFor(() =>
@@ -59,10 +69,12 @@ describe('IndexPage', () => {
       { id: '1', name: 'Model 1' },
     ]);
 
-    render(
-      <Provider store={reduxStore}>
-        <IndexPage />
-      </Provider>
+    await act(async () =>
+      render(
+        <Provider store={reduxStore}>
+          <IndexPage />
+        </Provider>
+      )
     );
 
     fireEvent.change(screen.getByTestId('Marca'), {
@@ -77,10 +89,12 @@ describe('IndexPage', () => {
   it('should disable the button when form is loading', async () => {
     (DetailsService.getValue as jest.Mock).mockResolvedValueOnce(10000);
 
-    render(
-      <Provider store={reduxStore}>
-        <IndexPage />
-      </Provider>
+    await act(async () =>
+      render(
+        <Provider store={reduxStore}>
+          <IndexPage />
+        </Provider>
+      )
     );
 
     fireEvent.change(screen.getByTestId('Marca'), {

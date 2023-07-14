@@ -5,24 +5,24 @@ describe('DetailsService', () => {
     it('should return an array of brands', async () => {
       const brands = await DetailsService.getBrands();
       expect(Array.isArray(brands)).toBe(true);
-    });
+    }, 10000);
   });
 
   describe('getModels', () => {
     it('should return an array of models for a given brand', async () => {
-      const brandId = '1';
+      const brandId = '8';
       const models = await DetailsService.getModels(brandId);
       expect(Array.isArray(models)).toBe(true);
-    });
+    }, 10000);
   });
 
   describe('getYears', () => {
     it('should return an array of years for a given brand and model', async () => {
-      const brandId = '1';
-      const modelId = '1';
+      const brandId = '8';
+      const modelId = '254';
       const years = await DetailsService.getYears(brandId, modelId);
       expect(Array.isArray(years)).toBe(true);
-    });
+    }, 10000);
   });
 
   describe('getValue', () => {
@@ -35,6 +35,6 @@ describe('DetailsService', () => {
 
       const value = await DetailsService.getValue(brandId, modelId, yearId);
       expect(typeof value).toBe('object');
-    });
+    }, 10000);
   });
 });

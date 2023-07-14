@@ -44,7 +44,7 @@ export default function Select(props: ISelectProps) {
         {props.options &&
           props.options.map((option) => (
             <MenuItem
-              key={option.value}
+              key={`${option.value}`}
               value={option.value}
               data-testid={option.value}
             >
