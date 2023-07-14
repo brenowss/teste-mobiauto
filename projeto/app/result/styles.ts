@@ -11,12 +11,12 @@ export const Container = styled.div`
   min-height: 100vh;
   gap: 1rem;
   background: rgb(224, 243, 241);
+  padding: 1rem;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: max-content;
   max-width: 750px;
   gap: 1rem;
 `;
