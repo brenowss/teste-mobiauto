@@ -1,4 +1,3 @@
-'use client';
 import { useSelector } from '../../lib/redux';
 import {
   BackButton,
@@ -15,7 +14,9 @@ export default function IndexPage() {
   const value = useSelector((state) => state.formValues.value);
 
   if (!value) {
-    router.push('/');
+    if (typeof location !== 'undefined') {
+      router.push('/');
+    }
     return null;
   }
 

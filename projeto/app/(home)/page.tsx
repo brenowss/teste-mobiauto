@@ -92,7 +92,9 @@ export default function IndexPage() {
       console.error('Caiu no catch', error);
     } finally {
       setIsLoading(false);
-      router.push('/result');
+      if (typeof location !== 'undefined') {
+        router.push('/result');
+      }
     }
   };
 
