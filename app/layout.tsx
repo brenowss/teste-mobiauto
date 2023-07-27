@@ -10,9 +10,9 @@ const roboto = Roboto({
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <head>
-        <title>Mobiauto - Teste Técnico</title>
+        <title>Tabela Fipe</title>
       </head>
       <body style={roboto.style}>
         <Providers>
