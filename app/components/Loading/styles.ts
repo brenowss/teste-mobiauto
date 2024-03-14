@@ -19,10 +19,10 @@ export const LdsRingChild = styled.div<{ $customColor?: string }>`
   width: 12px;
   height: 12px;
   margin: 4px;
-  border: 2px solid ${({ customColor }) => customColor || '#fff'};
+  border: 2px solid ${({ $customColor }) => $customColor || '#fff'};
   border-radius: 50%;
   animation: ${ldsRingAnimation} 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: ${({ customColor }) => customColor || '#fff'} transparent
+  border-color: ${({ $customColor }) => $customColor || '#fff'} transparent
     transparent transparent;
 
   &:nth-child(1) {
