@@ -10,6 +10,7 @@ import {
   Wrapper,
 } from './styles';
 import { useRouter } from 'next/navigation';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 export default function IndexPage() {
   const router = useRouter();
@@ -25,7 +26,10 @@ export default function IndexPage() {
   return (
     <Container>
       <Wrapper>
-        <BackButton href="/">{'< '}Voltar</BackButton>
+        <BackButton href="/">
+          <NavigateBeforeIcon />
+          Voltar
+        </BackButton>
         <Title>
           Tabela Fipe: Preço {value.Modelo} {value.AnoModelo}
         </Title>

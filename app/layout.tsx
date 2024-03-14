@@ -2,6 +2,7 @@ import { Providers } from '@/lib/providers';
 import StyledComponentsRegistry from '@/lib/styled-components/registry';
 import { Roboto } from 'next/font/google';
 import './styles/globals.css';
+import ToastContainer from './components/Toast/ToastContainer';
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -16,7 +17,10 @@ export default function RootLayout(props: React.PropsWithChildren) {
       </head>
       <body style={roboto.style}>
         <Providers>
-          <StyledComponentsRegistry>{props.children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <ToastContainer />
+            {props.children}
+          </StyledComponentsRegistry>
         </Providers>
       </body>
     </html>

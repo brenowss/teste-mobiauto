@@ -47,6 +47,7 @@ export const BackButton = styled(Link)`
   text-align: left;
   display: flex;
   align-items: center;
+  line-height: 18px;
 `;
 
 export const Subtext = styled.p`

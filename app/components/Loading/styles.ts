@@ -12,17 +12,18 @@ export const LdsRing = styled.div`
   height: 20px;
 `;
 
-export const LdsRingChild = styled.div`
+export const LdsRingChild = styled.div<{ $customColor?: string }>`
   box-sizing: border-box;
   display: block;
   position: absolute;
   width: 12px;
   height: 12px;
   margin: 4px;
-  border: 2px solid #fff;
+  border: 2px solid ${({ customColor }) => customColor || '#fff'};
   border-radius: 50%;
   animation: ${ldsRingAnimation} 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  border-color: ${({ customColor }) => customColor || '#fff'} transparent
+    transparent transparent;
 
   &:nth-child(1) {
     animation-delay: -0.225s;

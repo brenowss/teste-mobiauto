@@ -1,5 +1,4 @@
 'use client';
-import { ReactNode, useState } from 'react';
 import {
   FormControl,
   InputLabel,
@@ -8,6 +7,8 @@ import {
 } from '@mui/material';
 
 import { Select as SelectComponent } from './styles';
+import { ArrowDropDown } from '@mui/icons-material';
+import Loader from './components/Loader';
 
 type Option = {
   label: string;
@@ -21,6 +22,7 @@ interface ISelectProps {
   onChange: (value: string) => void;
   animateOnMount?: boolean;
   disabled?: boolean;
+  isLoading?: boolean;
 }
 
 export default function Select(props: ISelectProps) {
@@ -33,13 +35,14 @@ export default function Select(props: ISelectProps) {
       <InputLabel id="select-label">{props.label}</InputLabel>
       <SelectComponent
         labelId="select-label"
-        disabled={props.disabled}
+        disabled={props.disabled || props.isLoading}
         id="select"
         inputProps={{ 'data-testid': props.label }}
         value={props.value}
         label={props.label}
         onChange={handleChange}
         $animateOnMount={props.animateOnMount}
+        IconComponent={() => (props.isLoading ? <Loader /> : <ArrowDropDown />)}
       >
         {props.options &&
           props.options.map((option) => (
