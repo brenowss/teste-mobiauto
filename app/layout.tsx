@@ -14,6 +14,10 @@ export default function RootLayout(props: React.PropsWithChildren) {
     <html lang="pt-br">
       <head>
         <title>Tabela Fipe</title>
+        <meta
+          name="description"
+          content="Consulte o valor de um veículo de forma gratuita"
+        />
       </head>
       <body style={roboto.style}>
         <Providers>
